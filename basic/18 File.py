@@ -2,6 +2,8 @@
 
 __author__ = 'Shezzer'
 
+from sys import path
+
 # open()
 # 用于打开一个文件，并返回文件对象，在对文件进行处理过程都需要使用到这个函数，如果该文件无法被打开，会抛出 OSError。
 
@@ -43,8 +45,8 @@ print()
 # file 对象使用 open 函数来创建
 
 # 打开文件
-# fo = open("runoob.txt", "wb")
-fo = open("runoob.txt", "r+")
+print(path)
+fo = open("runoob.txt", "w+")
 print("文件名为: ", fo.name)
 # 关闭文件
 fo.close()
