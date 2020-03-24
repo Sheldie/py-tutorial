@@ -17,12 +17,14 @@ list2 = [1, 2, 3, 4, 5]
 list3 = ["a", "b", "c", "d"]
 list4 = list(range(5))
 list5 = list(range(2, 5))
+list6 = list(list1)     # 复制列表
 print("list1[0]: ", list1[0])
 print("list1[-2]: ", list1[-2])     # 从右侧开始读取倒数第二个元素: count from the right
 print("list1[1:]: ", list1[1:])     # 输出从第二个元素开始后的所有元素
 print("list2[1:5]: ", list2[1:4])   # 左闭右开
 print("list4: ", list4)
 print("list5: ", list5)
+print("list6: ", list6)
 
 
 print('更新与删除'.center(100, '-'))

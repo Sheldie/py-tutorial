@@ -458,5 +458,10 @@ print(str.zfill(40))
 print(str.zfill(50))
 print(str.rjust(50, '0'))
 
+print('reverse'.center(100, '-'))
+# 字符串翻转
+str = 'Runoob'
+print(str[::-1])
+print(''.join(reversed(str)))
 
 

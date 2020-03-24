@@ -136,7 +136,7 @@ print('update()'.center(100, '-'))
 # dict2 -- 添加到指定字典dict里的字典。
 dict = {'Name': 'Runoob', 'Age': 7}
 dict2 = {'Sex': 'female'}
-dict.update(dict2)
+dict.update(dict2)  # 合并字典
 print("更新字典 dict : ", dict)
 # 如果键值有重复，则 dict2 的内容更新替换到 dict 中
 
@@ -146,6 +146,12 @@ for k in sorted(dict.keys()):
     d = {k: dict[k]}
     d1.update(d)
 print(d1)
+
+# 使用 **，函数将参数以字典的形式导入
+dict1 = {'a': 10, 'b': 8}
+dict2 = {'d': 6, 'c': 4}
+dict3 = {**dict1, **dict2}  # *表示数据类型为tuple, **表示dict
+print(dict3)
 
 
 print('values()'.center(100, '-'))
@@ -164,6 +170,14 @@ pop_obj = site.pop('name')
 print(pop_obj)
 print(site)
 
+# 批量删除
+test_dict = {"Runoob": 1, "Google": 2, "Taobao": 3, "Zhihu": 4}
+# 输出原始的字典
+print("字典移除前 : " + str(test_dict))
+# 使用 pop 批量移除
+new_dict = {key: val for key, val in test_dict.items() if val > 2}
+print("字典移除后 : " + str(new_dict))
+
 
 print('popitem()'.center(100, '-'))
 # popitem()：随机返回并删除字典中的最后一对键和值。
@@ -172,3 +186,62 @@ site = {'name': '菜鸟教程', 'alexa': 10000, 'url': 'www.runoob.com'}
 pop_obj = site.popitem()
 print(pop_obj)
 print(site)
+
+
+print('lambda()'.center(100, '-'))
+# 按键(key)或值(value)对字典进行排序
+# 声明字典
+key_value = {}
+
+# 初始化
+key_value[2] = 56
+key_value[1] = 2
+key_value[5] = 12
+key_value[4] = 24
+key_value[6] = 18
+key_value[3] = 323
+
+print("按值(value)排序:")
+print(sorted(key_value.items(), key=lambda kv: kv[1]))
+print(sorted(key_value.items(), key=lambda kv: (kv[1], kv[0])))
+print(sorted(key_value.items(), key=lambda kv: (kv[1], kv[0]), reverse=True))
+
+
+# sorted(key_value) 返回一个迭代器
+# 字典按键排序
+for i in sorted(key_value):
+    print((i, key_value[i]), end=" ")
+
+
+print()
+# 字典列表排序
+lis = [{"name": "Taobao", "age": 100},
+       {"name": "Runoob", "age": 7},
+       {"name": "Google", "age": 100},
+       {"name": "Wiki", "age": 200}]
+
+# 通过 age 升序排序
+print("列表通过 age 升序排序: ")
+print(sorted(lis, key=lambda i: i['age']))
+print("\r")
+# 先按 age 排序，再按 name 排序
+print("列表通过 age 和 name 排序: ")
+print(sorted(lis, key=lambda i: (i['age'], i['name'])))
+print("\r")
+# 按 age 降序排序
+print("列表通过 age 降序排序: ")
+print(sorted(lis, key=lambda i: i['age'], reverse=True))
+print()
+
+
+# 计算字典值之和
+def returnSum(myDict):
+    sum = 0
+    for i in myDict:
+        sum += myDict[i]
+
+    return sum
+
+
+dict = {'a': 100, 'b': 200, 'c': 300}
+print("Sum :", returnSum(dict))
